@@ -5,10 +5,12 @@
 ### Create/Update .properties files for each environment you would like to use <br>
 
 for example, to set global username/password/roles add these properties to file: "application-dev.properties"
-```# Security
+```
+# Security
 spring.security.user.name=admin
 spring.security.user.password=admin
-spring.security.user.roles=USER```
+spring.security.user.roles=USER
+```
 
 
 
