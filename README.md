@@ -21,7 +21,7 @@ spring.security.user.roles=USER
 5. Click button: OK
 6. Click green run icon, this starts your newly created runconfiguration
 #### Using command line
-\> gradle bootRun "-Dspring.profiles.active=dev" <br>
+`gradle bootRun "-Dspring.profiles.active=dev"`
 
 
 
