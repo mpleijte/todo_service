@@ -1,4 +1,4 @@
-package com.pleijteit.todo.controller;
+package java.com.pleijteit.todo.controller;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
