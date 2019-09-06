@@ -9,7 +9,7 @@ application-prod.properties <br>
 
 ### Running gradle project in IntelliJ
  * Run > edit configuration <br>
-\> Gradle project: \<<i>path to current to-do project<i>\> <br>
+\> Gradle project: \<<i>path to current to-do project</i>\> <br>
 \> Tasks: <b>clean build bootRun</b> <br>
 \> VM options: <b>-Dspring.profiles.active=dev</b> <br>
 
