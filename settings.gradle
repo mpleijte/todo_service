@@ -1,6 +1,1 @@
-rootProject.name = 'totdo-service'
-
-// Security
-spring.security.user.name="admin"
-spring.security.user.password="password"
-
+rootProject.name = 'todo-service'
