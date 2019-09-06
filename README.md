@@ -2,10 +2,15 @@
 
 ## Howto run?
 
-### Create/Update property files for each environment you like to use <br>
-application-dev.properties <br>
-application-prod.properties <br>
-... etc
+### Create/Update .properties files for each environment you would like to use <br>
+
+for example, to set global username/password/roles add these properties to file: "application-dev.properties"
+```# Security
+spring.security.user.name=admin
+spring.security.user.password=admin
+spring.security.user.roles=USER```
+
+
 
 ### Running gradle project in IntelliJ
  * Run > edit configuration <br>
