@@ -2,7 +2,7 @@
 
 ## Howto run?
 
-### 1. Create/Update property files for each environment you like to use <br>
+### Create/Update property files for each environment you like to use <br>
 application-dev.properties <br>
 application-prod.properties <br>
 ... etc
