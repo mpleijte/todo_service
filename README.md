@@ -4,7 +4,7 @@
 
 ### Create/Update .properties files for each environment you would like to use <br>
 
-_FOR EXAMPLE_
+_FOR EXAMPLE_ <br>
 To set global username/password/roles add these properties to file: "application-dev.properties"
 ```
 # Security
