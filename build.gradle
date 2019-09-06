@@ -36,3 +36,14 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 }
+
+def Properties localBootRunProperties() {
+    Properties p = new Properties();
+    p.load(new FileInputStream(
+            file(project.projectDir).absolutePath + "/application.properties"))
+    return p;
+}
+
+bootRun {
+    systemProperties System.properties
+}
