@@ -1,9 +1,9 @@
-package com.pleijteit.totdo.controller;
+package com.pleijteit.todo.controller;
 
-import com.pleijteit.totdo.controller.dto.TodoListDtoRequest;
-import com.pleijteit.totdo.controller.dto.TodoListDtoResponse;
-import com.pleijteit.totdo.domain.TodoList;
-import com.pleijteit.totdo.service.TodoListService;
+import com.pleijteit.todo.controller.dto.TodoListDtoRequest;
+import com.pleijteit.todo.controller.dto.TodoListDtoResponse;
+import com.pleijteit.todo.domain.TodoList;
+import com.pleijteit.todo.service.TodoListService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +11,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +30,7 @@ public class TodoListController {
 
     @PostMapping("/lists")
     @ResponseStatus(HttpStatus.CREATED)
-    public TodoListDtoResponse addTodoList(@RequestBody TodoListDtoRequest newList) {
+    public TodoListDtoResponse addTodoList(@Valid @RequestBody TodoListDtoRequest newList) {
         String uuid = todoListService.createList(newList);
         TodoListDtoResponse response= new TodoListDtoResponse();
         response.setId(uuid);
@@ -46,13 +45,6 @@ public class TodoListController {
                 .stream()
                 .map(todoList -> mapToListDto(todoList))
                 .collect(Collectors.toList());
-//        TodoListDtoResponse response = new TodoListDtoResponse();
-//        response.setId("478b7104-5de0-458c-a33a-de134ccd608f");
-//        response.setName("aListName");
-//        response.setDescription("aListDescription");
-//        List<TodoListDtoResponse> responseList = new ArrayList<TodoListDtoResponse>();
-//        responseList.add(response);
-//        return responseList;
     }
 
     private TodoListDtoResponse mapToListDto(final TodoList todoList) {
@@ -63,11 +55,5 @@ public class TodoListController {
         );
     }
 
-//    private TodoList createToDoList(final TodoListDtoRequest todoListDtoRequest) {
-//        TodoList todoList = new TodoList();
-//        todoList.setName(todoListDtoRequest.getName());
-//        todoList.setDescription(todoListDtoRequest.getDescription());
-//        return todoList;
-//    }
 
 }

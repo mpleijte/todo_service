@@ -1,7 +1,7 @@
-package com.pleijteit.totdo.service;
+package com.pleijteit.todo.service;
 
-import com.pleijteit.totdo.controller.dto.TodoListDtoRequest;
-import com.pleijteit.totdo.domain.TodoList;
+import com.pleijteit.todo.controller.dto.TodoListDtoRequest;
+import com.pleijteit.todo.domain.TodoList;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

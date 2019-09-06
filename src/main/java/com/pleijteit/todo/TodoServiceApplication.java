@@ -1,4 +1,4 @@
-package com.pleijteit.totdo;
+package com.pleijteit.todo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

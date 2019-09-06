@@ -1,8 +1,7 @@
-package com.pleijteit.totdo.domain;
+package com.pleijteit.todo.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor

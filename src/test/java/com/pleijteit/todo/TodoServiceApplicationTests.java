@@ -1,4 +1,4 @@
-package com.pleijteit.totdo;
+package com.pleijteit.todo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
