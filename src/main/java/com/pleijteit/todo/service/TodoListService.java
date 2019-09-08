@@ -1,6 +1,7 @@
 package com.pleijteit.todo.service;
 
 import com.pleijteit.todo.controller.dto.TodoListDtoRequest;
+import com.pleijteit.todo.controller.dto.TodoListDtoResponse;
 import com.pleijteit.todo.domain.TodoList;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
+
+import static java.util.Collections.emptyList;
 
 @Slf4j
 @Service
@@ -15,15 +19,20 @@ public class TodoListService {
 
     private List<TodoList> todoList = new ArrayList<TodoList>();
 
-    public List<TodoList> getTodoLists() {
+    public List<TodoListDtoResponse> getTodoLists() {
         initTodoList();
-        return todoList;
+
+        return todoList == null ? emptyList() : todoList.stream()
+                .map(todoList -> mapToListDto(todoList))
+                .collect(Collectors.toList());
     }
 
-    public String createList(final TodoListDtoRequest todoListDto) {
+    public TodoListDtoResponse createList(final TodoListDtoRequest todoListDto) {
         final TodoList list = new TodoList(UUID.randomUUID().toString(), todoListDto.getName(), todoListDto.getDescription());
         todoList.add(list);
-        return list.getId();
+        TodoListDtoResponse response = new TodoListDtoResponse();
+        response.setId(list.getId());
+        return response;
     }
 
     private void initTodoList() {
@@ -33,6 +42,14 @@ public class TodoListService {
         todoList.add(newList1);
         todoList.add(newList2);
         todoList.add(newList3);
+    }
+
+    private TodoListDtoResponse mapToListDto(final TodoList todoList) {
+        return new TodoListDtoResponse(
+                todoList.getId(),
+                todoList.getName(),
+                todoList.getDescription()
+        );
     }
 
 }

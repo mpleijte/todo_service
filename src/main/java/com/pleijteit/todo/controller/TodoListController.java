@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static java.util.Collections.emptyList;
 
 @Slf4j
 @RestController
@@ -31,20 +28,14 @@ public class TodoListController {
     @PostMapping("/lists")
     @ResponseStatus(HttpStatus.CREATED)
     public TodoListDtoResponse addTodoList(@Valid @RequestBody TodoListDtoRequest newList) {
-        String uuid = todoListService.createList(newList);
-        TodoListDtoResponse response= new TodoListDtoResponse();
-        response.setId(uuid);
-        return response;
+        return todoListService.createList(newList);
     }
 
     @GetMapping("/lists")
     @ResponseStatus(HttpStatus.OK)
     public List<@Valid TodoListDtoResponse> getTodoLists() {
-        List<TodoList> todoLists = todoListService.getTodoLists();
-        return todoLists == null ? emptyList() : todoLists
-                .stream()
-                .map(todoList -> mapToListDto(todoList))
-                .collect(Collectors.toList());
+        List<TodoListDtoResponse> listOfTodoList = todoListService.getTodoLists();
+        return listOfTodoList;
     }
 
     private TodoListDtoResponse mapToListDto(final TodoList todoList) {
